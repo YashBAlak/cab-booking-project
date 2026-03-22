@@ -1,0 +1,72 @@
+<template>
+
+<div class="main-container">
+
+<div class="reservation-card">
+
+<h2 class="title">Book Your Cab 🚖</h2>
+
+<lightning-record-form
+object-api-name={objectApiName}
+record-id={recordId}
+fields={fields}
+columns="2"
+mode="edit"
+onsuccess={handleSuccess}
+onsubmit={handleSubmit}>
+</lightning-record-form>
+
+</div>
+
+</div>
+
+<!-- Confirmation Modal -->
+
+<template if:true={openModalPopup}>
+
+<div role="dialog" class="slds-modal slds-fade-in-open">
+
+<div class="slds-modal__container">
+
+<header class="slds-modal__header">
+<h2 class="modal-title">Ride Booked Successfully 🎉</h2>
+</header>
+
+<div class="slds-modal__content slds-p-around_medium">
+
+<lightning-record-view-form
+object-api-name="Cab_Reservation__c"
+record-id={recordId}>
+
+<lightning-output-field field-name="Name"></lightning-output-field>
+<lightning-output-field field-name="Customer_Name__c"></lightning-output-field>
+<lightning-output-field field-name="Aadhar_Number__c"></lightning-output-field>
+<lightning-output-field field-name="Travel_Date_Time__c"></lightning-output-field>
+<lightning-output-field field-name="Travel_Form__c"></lightning-output-field>
+<lightning-output-field field-name="Travel_To__c"></lightning-output-field>
+<lightning-output-field field-name="Customer_Email__c"></lightning-output-field>
+<lightning-output-field field-name="Number_of_travelers__c"></lightning-output-field>
+<lightning-output-field field-name="Vehicle__c"></lightning-output-field>
+<lightning-output-field field-name="Price_Per_Km__c"></lightning-output-field>
+<lightning-output-field field-name="Driver__c"></lightning-output-field>
+<lightning-output-field field-name="Driver_Email__c"></lightning-output-field>
+
+
+
+</lightning-record-view-form>
+
+</div>
+
+<footer class="slds-modal__footer">
+<lightning-button label="Close" variant="brand" onclick={closeModal}></lightning-button>
+</footer>
+
+</div>
+
+</div>
+
+<div class="slds-backdrop slds-backdrop_open"></div>
+
+</template>
+
+</template>

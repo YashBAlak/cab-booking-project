@@ -1,0 +1,43 @@
+<template>
+    <div class="background">
+
+        <div class="glass-card">
+
+            <div class="header">
+                <h1>
+                    Welcome Back 
+                    <span class="car">🚗</span>
+                </h1>
+                <p>Sign in to continue your ride</p>
+            </div>
+
+            <div class="form-container fade-in">
+
+                <lightning-input 
+                    type="text" 
+                    label="User Name"
+                    value={usernameValue}
+                    onchange={handleUserName}>
+                </lightning-input>
+
+                <lightning-input 
+                    type="text" 
+                    label="Password"
+                    value={passwordValue}
+                    onchange={handlepassword}>
+                </lightning-input>
+
+                <div class="submit-btn">
+                    <lightning-button 
+                        label="Login"
+                        onclick={handleLogin}
+                        class="premium-btn">
+                    </lightning-button>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+</template>

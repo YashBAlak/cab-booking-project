@@ -1,0 +1,53 @@
+<template>
+    <div class="background">
+
+        <div class="glass-card">
+
+            <div class="header">
+                <h1>
+                    Premium Cab Services 
+                    <span class="car">🚗</span>
+                </h1>
+                <p>Luxury Ride Experience</p>
+            </div>
+
+            <div class="button-section">
+                <lightning-button 
+                    label="Sign Up"
+                    onclick={handlesignup}
+                    class="premium-btn">
+                </lightning-button>
+
+                <lightning-button 
+                    label="Sign In"
+                    onclick={handleSubmit}
+                    class="premium-btn outline">
+                </lightning-button>
+            </div>
+
+            <template if:true={showForm}>
+                <div class="form-container fade-in">
+                    <lightning-record-edit-form
+                        object-api-name="Cab_Customer__c"
+                        onsuccess={handleSuccess}>
+
+                        <lightning-input-field field-name="Name"></lightning-input-field>
+                        <lightning-input-field field-name="Customer_Email__c"></lightning-input-field>
+                        <lightning-input-field field-name="Username__c"></lightning-input-field>
+                        <lightning-input-field field-name="Password__c"></lightning-input-field>
+
+                        <div class="submit-btn">
+                            <lightning-button 
+                                type="submit"
+                                label="Register"
+                                class="premium-btn">
+                            </lightning-button>
+                        </div>
+
+                    </lightning-record-edit-form>
+                </div>
+            </template>
+
+        </div>
+    </div>
+</template>

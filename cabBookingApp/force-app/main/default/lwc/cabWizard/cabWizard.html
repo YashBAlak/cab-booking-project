@@ -1,0 +1,79 @@
+<template>
+    <div class="background">
+
+        <div class="glass-card">
+
+            <h1 class="title">Cab Booking Wizard 🚘</h1>
+
+            <lightning-progress-indicator current-step={currentStep} type="base">
+
+                <lightning-progress-step label="Location" value="1"></lightning-progress-step>
+                <lightning-progress-step label="Reservation" value="2"></lightning-progress-step>
+                <lightning-progress-step label="Confirmation" value="3"></lightning-progress-step>
+
+            </lightning-progress-indicator>
+
+            <div class="step-container">
+
+                <template if:true={isStepOne}>
+                    <c-session-map></c-session-map>
+                </template>
+
+                <template if:true={isStepTwo}>
+                    <c-cab-reservation-comp></c-cab-reservation-comp>
+                </template>
+
+                <template if:true={isStepThree}>
+                    
+                    <div class="finish-container">
+
+                        <h2 class="success-msg">
+                            🎉 Thank You! Your ride is booked successfully!
+                        </h2>
+
+                        <div class="finish-buttons">
+
+                            <lightning-button 
+                                label="Back"
+                                onclick={handleBackClick}>
+                            </lightning-button>
+
+                            <lightning-button 
+                                variant="brand"
+                                label="Finish"
+                                onclick={handleFinishClick}>
+                            </lightning-button>
+
+                        </div>
+
+                    </div>
+
+                </template>
+
+            </div>
+
+            <!-- Step 1 & 2 Buttons -->
+            <template if:false={isStepThree}>
+                <div class="button-group">
+
+                    <template if:true={showBack}>
+                        <lightning-button 
+                            label="Back"
+                            onclick={handleBackClick}>
+                        </lightning-button>
+                    </template>
+
+                    <template if:true={showNext}>
+                        <lightning-button 
+                            label="Next"
+                            onclick={handleNextClick}>
+                        </lightning-button>
+                    </template>
+
+                </div>
+            </template>
+
+        </div>
+
+    </div>
+</template>
